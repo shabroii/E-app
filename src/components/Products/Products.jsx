@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import CategorySlider from '../../components/categorySlider/categorySlider'
 import { cartContext } from '../../context/cartContext'
 import toast from 'react-hot-toast'
-import MainSlider from '../MainSlider/MainSlider'
+// import MainSlider from '../MainSlider/MainSlider'
 import { useQuery } from '@tanstack/react-query'
 
 
@@ -70,7 +70,7 @@ export default function Products() {
   }else{
  return (
     <>
-      <MainSlider/>
+      {/* <MainSlider/> */}
       <CategorySlider/>
     {/* <div className="container"> */}
  
