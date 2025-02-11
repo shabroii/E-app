@@ -16,7 +16,7 @@ export default function ProductDetails() {
 
     let response = await AddProductToCart(id)
     // console.log(response)
-    toast.success('Here is your toast.'); 
+    toast.success('Product added successfully to your cart.'); 
   }
 
   
@@ -46,6 +46,7 @@ export default function ProductDetails() {
 
   return (
     <>
+    <div className="container">
     <div className='row my-5 mx-4'>
       <div className='w-1/4'>
       <Slider {...settings} className='mr-5'>
@@ -72,7 +73,9 @@ export default function ProductDetails() {
       <button onClick={()=>{AddProducItem(ProductDetails.id)}} className='btn mt-4'>Add To Cart</button>
       </div>
     </div>
-    {/* <Category   categoryName={details?.category?.name}/> */}
+    {/* <Category   categoryName={ProductDetails?.category?.name}/> */}
+    </div>
+  
     </>
   )
 }

@@ -24,7 +24,8 @@ let {cartId}=useParams()
       }
     }
   )
-  .then((response)=>{console.log('checkout',response)
+  .then((response)=>{
+    console.log('checkout',response)
   location.href=response.data.session.url
   })
   .catch((error)=>{
