@@ -8,8 +8,9 @@ export default function Navbar() {
   let navigate = useNavigate()
   let {isLogin, setLogin}=useContext(userContext)
   let {cartNumber, GetProductToCart} = useContext(cartContext)
+  let {wishNumber, GetWishNumber} = useContext(cartContext)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [language, setLanguage] = useState('en'); // حالة اللغة
+  const [language, setLanguage] = useState('en'); 
 
   function logOut(){
     localStorage.removeItem('userToken')
@@ -70,6 +71,11 @@ export default function Navbar() {
                 <li className="px-3 py-2">
                   <NavLink to="carts">
                     {language === 'en' ? 'Carts' : 'العربة'} <span className="bg-yellow-300 px-1 rounded text-sm text-slate-500">{cartNumber}</span>
+                  </NavLink>
+                </li>
+                <li className="px-3 py-2">
+                  <NavLink to="wishlist">
+                    {language === 'en' ? 'Wishlist' : 'المفضلة'} <span className="bg-red-300 px-1 rounded text-sm text-slate-500">{wishNumber}</span>
                   </NavLink>
                 </li>
               </ul>
