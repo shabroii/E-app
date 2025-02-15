@@ -24,6 +24,7 @@ import VerifyResetCode from './components/verifyResetCode/verifyResetCode'
 import ResetPassword from './components/resetPassword/resetPassword'
 import Category from './components/Category/Category'
 import Wishlist from './components/Wishlist/Wishlist'
+import { WishlistProvider } from './context/wishlistContext'
 
 
 let query = new QueryClient()
@@ -54,6 +55,7 @@ function App() {
   
 
   return (
+    <WishlistProvider>
     <CartContextProvider>
    <UserContextProvider>
     <QueryClientProvider client={query}>
@@ -65,6 +67,7 @@ function App() {
     </QueryClientProvider>
     </UserContextProvider>
     </CartContextProvider>
+    </WishlistProvider>
   )
 }
 

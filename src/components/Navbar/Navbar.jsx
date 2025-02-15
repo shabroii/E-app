@@ -3,12 +3,13 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { userContext } from './../../context/userContext';
 import { cartContext } from '../../context/cartContext';
 import img from "../../assets/img/Logo.png"
+import { WishlistContext } from '../../context/wishlistContext';
 
 export default function Navbar() {
   let navigate = useNavigate()
   let {isLogin, setLogin}=useContext(userContext)
   let {cartNumber, GetProductToCart} = useContext(cartContext)
-  let {wishNumber, GetWishNumber} = useContext(cartContext)
+  const { wishlist } = useContext(WishlistContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [language, setLanguage] = useState('en'); 
 
@@ -75,7 +76,7 @@ export default function Navbar() {
                 </li>
                 <li className="px-3 py-2">
                   <NavLink to="wishlist">
-                    {language === 'en' ? 'Wishlist' : 'المفضلة'} <span className="bg-red-300 px-1 rounded text-sm text-slate-500">{wishNumber}</span>
+                    {language === 'en' ? 'Wishlist' : 'المفضلة'} <span className="bg-red-300 px-1 rounded text-sm text-slate-500">{wishlist.length}</span>
                   </NavLink>
                 </li>
               </ul>

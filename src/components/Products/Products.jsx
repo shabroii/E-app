@@ -6,29 +6,31 @@ import CategorySlider from '../../components/categorySlider/categorySlider'
 import { cartContext } from '../../context/cartContext'
 import toast from 'react-hot-toast'
 import { useQuery } from '@tanstack/react-query'
+import { WishlistContext } from '../../context/wishlistContext'
 
 export default function Products() {
   let { data, error, isError, isLoading, isFetching } = useQuery({ queryKey: 'recentProduct', queryFn: getProducts })
   let { AddProductToCart } = useContext(cartContext)
-  const [wishlist, setWishlist] = useState([])
+  const { wishlist, toggleWishlist } = useContext(WishlistContext);
+  // const [wishlist, setWishlist] = useState([])
 
-  useEffect(() => {
-    const storedWishlist = JSON.parse(localStorage.getItem("wishlist")) || []
-    setWishlist(storedWishlist)
-  }, [])
+  // useEffect(() => {
+  //   const storedWishlist = JSON.parse(localStorage.getItem("wishlist")) || []
+  //   setWishlist(storedWishlist)
+  // }, [])
 
-  function toggleWishlist(product) {
-    let updatedWishlist = [...wishlist]
-    if (wishlist.some(item => item.id === product.id)) {
-      updatedWishlist = wishlist.filter(item => item.id !== product.id)
-      toast.error("Removed from Wishlist", { duration: 2000, position: 'bottom-left' })
-    } else {
-      updatedWishlist.push(product)
-      toast.success("Added to Wishlist", { duration: 2000, position: 'bottom-left' })
-    }
-    setWishlist(updatedWishlist)
-    localStorage.setItem("wishlist", JSON.stringify(updatedWishlist))
-  }
+  // function toggleWishlist(product) {
+  //   let updatedWishlist = [...wishlist]
+  //   if (wishlist.some(item => item.id === product.id)) {
+  //     updatedWishlist = wishlist.filter(item => item.id !== product.id)
+  //     toast.error("Removed from Wishlist", { duration: 2000, position: 'bottom-left' })
+  //   } else {
+  //     updatedWishlist.push(product)
+  //     toast.success("Added to Wishlist", { duration: 2000, position: 'bottom-left' })
+  //   }
+  //   setWishlist(updatedWishlist)
+  //   localStorage.setItem("wishlist", JSON.stringify(updatedWishlist))
+  // }
 
   async function AddProducItem(id) {
     let response = await AddProductToCart(id)
