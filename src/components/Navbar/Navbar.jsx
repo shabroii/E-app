@@ -9,7 +9,7 @@ export default function Navbar() {
   let {isLogin, setLogin}=useContext(userContext)
   let {cartNumber, GetProductToCart} = useContext(cartContext)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [language, setLanguage] = useState('en'); // حالة اللغة
+  const [language, setLanguage] = useState('en'); 
 
   function logOut(){
     localStorage.removeItem('userToken')

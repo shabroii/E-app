@@ -23,7 +23,7 @@ export default function Login() {
   .then((response)=>{console.log('success',response)
   if(response.data.message == 'success'){
     localStorage.setItem('userToken', response.data.token)
-    setLogin(response.data.token)
+      setLogin(response.data.token)
       setLoading(false)
       navigate('/')
   }
