@@ -12,32 +12,16 @@ export default function Products() {
   let { data, error, isError, isLoading, isFetching } = useQuery({ queryKey: 'recentProduct', queryFn: getProducts })
   let { AddProductToCart } = useContext(cartContext)
   const { wishlist, toggleWishlist } = useContext(WishlistContext);
-  // const [wishlist, setWishlist] = useState([])
 
-  // useEffect(() => {
-  //   const storedWishlist = JSON.parse(localStorage.getItem("wishlist")) || []
-  //   setWishlist(storedWishlist)
-  // }, [])
-
-  // function toggleWishlist(product) {
-  //   let updatedWishlist = [...wishlist]
-  //   if (wishlist.some(item => item.id === product.id)) {
-  //     updatedWishlist = wishlist.filter(item => item.id !== product.id)
-  //     toast.error("Removed from Wishlist", { duration: 2000, position: 'bottom-left' })
-  //   } else {
-  //     updatedWishlist.push(product)
-  //     toast.success("Added to Wishlist", { duration: 2000, position: 'bottom-left' })
-  //   }
-  //   setWishlist(updatedWishlist)
-  //   localStorage.setItem("wishlist", JSON.stringify(updatedWishlist))
-  // }
 
   async function AddProducItem(id) {
     let response = await AddProductToCart(id)
     if (response.data.status === 'success') {
-      toast.success(response.data.message, { duration: 4000, position: 'bottom-left' })
+      toast.success(response.data.message, { duration: 4000, position: 'bottom-left' }) 
+      console.log(response.data)
     } else {
       toast.error(response.data.message, { duration: 4000, position: 'bottom-left' })
+        
     }
   }
 
@@ -60,7 +44,7 @@ export default function Products() {
               return (
                 <div className='w-full p-4 product' key={product.id}>
                   <div className='bg-slate-200 p-5 relative'>
-                    <button onClick={() => toggleWishlist(product)} className='absolute top-2 right-2 text-red-500 text-xl'>
+                    <button onClick={() => toggleWishlist(product)} className='absolute top-5 right-5 text-red-500 text-xl'>
                       {isInWishlist ? '❤️' : '🤍'}
                     </button>
                     <Link to={`/ProductDetails/${product.id}`}>

@@ -10,6 +10,9 @@ export let cartContext = createContext()
 export default function CartContextProvider(props){
    const [cartNumber, setCart] = useState(0)
 
+
+
+ 
     function AddProductToCart(productId){
 
        return axios.post('https://ecommerce.routemisr.com/api/v1/cart',
