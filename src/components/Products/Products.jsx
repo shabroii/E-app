@@ -22,10 +22,9 @@ export default function Products() {
 
   const [selectedCategory, setSelectedCategory] = useState('');
 
-  // حالات لتخزين قيم الفلتر حسب السعر
   
   const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(10000); // قيمة مبدئية للحد الأقصى للسعر
+  const [maxPrice, setMaxPrice] = useState(10000);
 
   useEffect(() => {
     const storedProducts = JSON.parse(localStorage.getItem("products")) || [];

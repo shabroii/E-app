@@ -34,9 +34,9 @@ export default function CategorySlider() {
     speed: 500,
     slidesToShow: 6,
     slidesToScroll: 2,
-    autoplay: true, // تشغيل تلقائي
-    autoplaySpeed: 2000, // تغيير الشريحة كل ثانيتين
-    pauseOnHover: false, // لا يتوقف عند تمرير الماوس
+    autoplay: true, 
+    autoplaySpeed: 2000, 
+    pauseOnHover: false, 
   };
   
   return (
