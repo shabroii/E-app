@@ -46,7 +46,7 @@ export default function CategorySlider() {
       <Slider {...settings}>
      {category.map((img)=>{
       return <div>
-      <img src={img.image} alt={img.name} className='w-[100%] h-[200px]'/>
+      <img src={img.image} alt={img.name} className='w-[100%] h-[200px] '/>
       <p className='px-3'>{img.name}</p>
       </div>
      })}
