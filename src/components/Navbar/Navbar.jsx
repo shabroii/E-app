@@ -55,8 +55,8 @@ export default function Navbar() {
                   <li className="px-3 py-2"><NavLink to="brands">{language === 'en' ? 'Brands' : 'العلامات التجارية'}</NavLink></li>
                   <li className="px-3 py-2"><NavLink to="category">{language === 'en' ? 'Category' : 'الفئة'}</NavLink></li>
                   <li className="px-3 py-2">
-                    <NavLink to="carts">
-                      {language === 'en' ? 'Carts' : 'العربة'} <span className="bg-yellow-300 px-1 rounded text-sm text-slate-500">{cartNumber}</span>
+                    <NavLink to="cart">
+                      {language === 'en' ? 'Cart' : 'العربة'} <span className="bg-yellow-300 px-1 rounded text-sm text-slate-500">{cartNumber}</span>
                     </NavLink>
                   </li>
                 </ul>
@@ -70,8 +70,8 @@ export default function Navbar() {
                 <li className="px-3 py-2"><NavLink to="brands">{language === 'en' ? 'Brands' : 'العلامات التجارية'}</NavLink></li>
                 <li className="px-3 py-2"><NavLink to="category">{language === 'en' ? 'Category' : 'الفئة'}</NavLink></li>
                 <li className="px-3 py-2">
-                  <NavLink to="carts">
-                    {language === 'en' ? 'Carts' : 'العربة'} <span className="bg-yellow-300 px-1 rounded text-sm text-slate-500">{cartNumber}</span>
+                  <NavLink to="cart">
+                    {language === 'en' ? 'Cart' : 'العربة'} <span className="bg-yellow-300 px-1 rounded text-sm text-slate-500">{cartNumber}</span>
                   </NavLink>
                 </li>
                 <li className="px-3 py-2">

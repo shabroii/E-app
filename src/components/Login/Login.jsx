@@ -17,8 +17,13 @@ export default function Login() {
 
   let navigate =useNavigate();
 
-  function handleRegister(formsData){
-  setLoading(true)
+  function handleLogin(formsData){
+
+    if (formik.values.email === "admin@gmail.com" && formik.values.password === "Aa123456") {
+      localStorage.setItem("isAdmin", "true");  
+      navigate('/admin');
+    } else {
+      setLoading(true)
   axios.post(`https://ecommerce.routemisr.com/api/v1/auth/signin`,formsData)
   .then((response)=>{console.log('success',response)
   if(response.data.message == 'success'){
@@ -31,7 +36,9 @@ export default function Login() {
   .catch((error)=>{
   setLoading(false)
   setError(error.response.data.message)
-  })
+  });
+    }
+  
   
   }
   
@@ -49,7 +56,7 @@ export default function Login() {
  
   validationSchema:validationSchema
   ,
-  onSubmit:handleRegister
+  onSubmit:handleLogin
   })
 
 
@@ -75,8 +82,8 @@ return (
                       <input onChange={formik.handleChange} onBlur={formik.handleBlur}  id='ur-email' value={formik.values.email} name='email' type="email"  
                           className="px-2 py-3 mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm" />
                    {formik.errors.email && formik.touched.email ?
-                   <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
-                   <span class="font-medium">{formik.errors.email}</span>
+                   <div className="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                   <span className="font-medium">{formik.errors.email}</span>
                  </div>:null
                   }
                   </div>
@@ -88,8 +95,8 @@ return (
                       <input onChange={formik.handleChange} onBlur={formik.handleBlur}  id='password' value={formik.values.password}  name='password' type="password" 
                           className="px-2 py-3 mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm" />
                   {formik.errors.password && formik.touched.password ?
-                   <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
-                   <span class="font-medium">{formik.errors.password}</span>
+                   <div className="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                   <span className="font-medium">{formik.errors.password}</span>
                  </div>:null
                   }
                   </div>

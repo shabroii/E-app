@@ -25,6 +25,7 @@ import ResetPassword from './components/resetPassword/resetPassword'
 import Category from './components/Category/Category'
 import Wishlist from './components/Wishlist/Wishlist'
 import { WishlistProvider } from './context/wishlistContext'
+import Admin from './components/AdminPanel/Admin'
 
 
 let query = new QueryClient()
@@ -34,6 +35,7 @@ let routes = createBrowserRouter([
 {path:'',element:<Layout/>,children:[
   {index:true,element:<ProtectedRoute><Products/></ProtectedRoute>},
   {path:'login',element:<Login/>},
+  {path:'admin',element:<Admin/>},
   {path:'logout',element:<Logout/>},
   {path:'register',element:<Register/>},
   {path:'brands',element:<ProtectedRoute><Brands/></ProtectedRoute>},
@@ -44,7 +46,7 @@ let routes = createBrowserRouter([
   {path:'forgotPassword',element:<ForgotPassword/>},
   {path:'VerifyResetCode',element:<VerifyResetCode/>},
   {path:'resetPassord',element:<ResetPassword/>},
-  {path:'carts',element:<ProtectedRoute><Carts/></ProtectedRoute>},
+  {path:'cart',element:<ProtectedRoute><Carts/></ProtectedRoute>},
   {path:'wishlist',element:<ProtectedRoute><Wishlist/></ProtectedRoute>},
   {path:'*',element:<NotFound/>},
   

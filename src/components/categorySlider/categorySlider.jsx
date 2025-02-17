@@ -3,6 +3,8 @@ import React, { useState,useEffect } from 'react'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 
 export default function CategorySlider() {
@@ -32,12 +34,15 @@ export default function CategorySlider() {
     speed: 500,
     slidesToShow: 6,
     slidesToScroll: 2,
+    autoplay: true, // تشغيل تلقائي
+    autoplaySpeed: 2000, // تغيير الشريحة كل ثانيتين
+    pauseOnHover: false, // لا يتوقف عند تمرير الماوس
   };
   
   return (
     <>
     <div className='mb-5'>
-      <h1 className='text-l font-medium my-2 mb-1 px-2 text-slate-700'>Shop Popular Category</h1>
+      <h1 className='text-xl text-green-500 font-bold my-4 pl-5'>Popular</h1>
       <Slider {...settings}>
      {category.map((img)=>{
       return <div>
