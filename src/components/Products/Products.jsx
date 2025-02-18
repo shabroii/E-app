@@ -81,8 +81,6 @@ export default function Products() {
     <>
       <CategorySlider />
       <div className="container mx-auto pt-5">
-        
-        
 
         <div className='border border-green-500 p-5 rounded-xl bg-slate-100'>
           <h2 className="text-2xl text-green-500 font-bold my-4">New Releases</h2>
@@ -95,7 +93,7 @@ export default function Products() {
                       New
                     </div>
 
-                    <img className="w-full h-auto rounded-md" src={product.image} alt={product.name} />
+                    <img className="w-full h-64 rounded-md" src={product.image} alt={product.name} />
                     <span className="block font-light text-green-600 mt-2">{product.category}</span>
                     <span className="font-semibold text-gray-700 block">{product.name}</span>
                     <div className="flex justify-between my-3">
