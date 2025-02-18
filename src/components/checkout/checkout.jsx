@@ -20,7 +20,7 @@ let {cartId}=useParams()
         token:localStorage.getItem('userToken')
       },
       params:{
-        url:'https://shopo-market.netlify.app'
+        url:'http://localhost:5173'
       }
     }
   )
